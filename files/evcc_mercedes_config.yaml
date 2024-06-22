@@ -1,0 +1,26 @@
+vehicles:
+- type: custom
+  name: eqa
+  title: EQA
+  capacity: 66
+  phases: 3
+  icon: car
+  soc: 
+    source: http
+    uri: http://localhost:8093/v1/state/mercedesme.0.W1234567891234567.state.soc.displayValue/plain?extraPlain=true
+    method: GET 
+    timeout: 5s
+  range: 
+    source: http
+    uri: http://localhost:8093/v1/state/mercedesme.0.W1234567891234567.state.overallRange.displayValue/plain?extraPlain=true
+    method: GET
+    timeout: 5s
+  onIdentify: 
+    mode: minpv
+    mincurrent: 6
+    maxcurrent: 16
+  status:
+    source: http
+    uri: http://localhost:80/evcc_mapper/mercedes_status.php
+    method: GET 
+    timeout: 5s
